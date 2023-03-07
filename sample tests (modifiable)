@@ -1,0 +1,48 @@
+const {expect} = require('chai')
+
+describe("findItems", () => {
+  it('returns an array of items that have the type of book', () => {
+    expect(findItems(items, 'book')).to.eql(
+      [
+        {itemName: "Effective Programming Habits", type: "book", price: 18.99},
+        {itemName: "Finding Your Center", type: "book", price: 15.00}, 
+        {itemName: "Fabulous Algorithms", type: "book",price: 29.99}
+      ]
+    )
+  })
+    it('returns an array of items that have the type of computer', () => {
+    expect(findItems(items, 'computer')).to.eql(
+      [{itemName: "Creation 3005", type: "computer",price: 399.99},
+       {itemName: "Orangebook Pro", type: "computer",price: 899.99}]
+    )
+  })
+  it('returns an array of items that have the type of book', () => {
+    expect(findItems(cart, 'book')).to.eql(
+      [{ itemName: "Looking Up", type: "book", price: 18.99},
+      { itemName: "Fortitude in Solitude", type: "book",price: 8.99},
+      { itemName: "Guru Galatan", type: "book", price: 15.00},
+      { itemName: "Fabulous Algorithms", type: "book",price: 29.99}]
+    )
+  })
+    it('returns an array of items that have the type of supplies', () => {
+    expect(findItems(cheapItems, 'supplies')).to.eql(
+      [  {itemName: "Pencil Case", type: "supplies", price: 2.99 },
+          { itemName: "Spiral Notebook", type: "supplies", price: 4.99 },
+          { itemName: "Pack of 10 Pencils", type: "supplies", price: 8.20 },
+          { itemName: "Ballpoint Pen", type: "supplies", price: 2.20 },
+          { itemName: "Eraser", type: "supplies", price: .99 },
+          { itemName: "Stapler", type: "supplies", price: 3.99 }
+      ]
+    )
+  })
+})
+
+describe("findItems extended feature", () => {
+  it('Checks if a list is empty', () => {
+    expect(findItems([], "computer")).to.equal(  "Your cart does not have any items in it.")
+  })
+  
+  it('Checks if no items are found of a particular type', () => {
+    expect(findItems(items, "nunchucks")).to.equal(  "No items found of that type. Please search for a different item.")
+  })
+})
