@@ -1,0 +1,15 @@
+function findItems (items, type) {
+  if (items.length ===0){
+      return "Your cart does not have any items in it."
+  }
+  let matches = [];
+  for (i = 0; i < items.length; i++) {
+    if (items[i].type.includes(type)) {
+      matches.push(items[i])
+    }
+  }
+    if (matches.length ===0){
+      return "No items found of that type. Please search for a different item."
+    }
+  return matches;
+}
